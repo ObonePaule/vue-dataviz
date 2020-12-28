@@ -1,20 +1,34 @@
 <template>
-  <v-app>
-    <v-main>
-      <v-btn elevation="2">Test Vuetify</v-btn>
-    </v-main>
-  </v-app>
+  <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/search">Search</router-link>
+      <router-link to="/data">Data</router-link>
+      <router-link to="/found">Found</router-link>
+    </div>
+    <router-view/>
+  </div>
 </template>
 
-<script>
-export default {
-  name: 'App',
+<style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 
-  components: {
-  },
+#nav {
+  padding: 30px;
 
-  data: () => ({
-    //
-  }),
-};
-</script>
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
+</style>
