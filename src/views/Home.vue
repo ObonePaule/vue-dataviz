@@ -1,22 +1,47 @@
 <template>
   <div class="home">
+    <v-card
+      class="pa-4"
+      flat
+      height="300px"
+      >
+      <v-toolbar
+        dense
+        floating
+      >
+        <v-text-field
+          hide-details
+          prepend-icon="mdi-magnify"
+          single-line
+        ></v-text-field>
+
+        <v-btn icon>
+          <v-icon>mdi-crosshairs-gps</v-icon>
+        </v-btn>
+
+        <v-btn icon>
+          <v-icon>mdi-dots-vertical</v-icon>
+        </v-btn>
+      </v-toolbar>
+    </v-card>
+
     <div style="height: 350px;">
-    <div class="info" style="height: 15%">
-      <span>Center: {{ center }}</span>
-      <span>Zoom: {{ zoom }}</span>
-      <span>Bounds: {{ bounds }}</span>
+      <div class="info" style="height: 15%">
+        <span>Center: {{ center }}</span>
+        <span>Zoom: {{ zoom }}</span>
+        <span>Bounds: {{ bounds }}</span>
+      </div>
+      <l-map
+        style="height: 80%; width: 100%"
+        :zoom="zoom"
+        :center="center"
+        @update:zoom="zoomUpdated"
+        @update:center="centerUpdated"
+        @update:bounds="boundsUpdated"
+      >
+        <l-tile-layer :url="url"></l-tile-layer>
+      </l-map>
     </div>
-    <l-map
-      style="height: 80%; width: 100%"
-      :zoom="zoom"
-      :center="center"
-      @update:zoom="zoomUpdated"
-      @update:center="centerUpdated"
-      @update:bounds="boundsUpdated"
-    >
-      <l-tile-layer :url="url"></l-tile-layer>
-    </l-map>
-  </div>
   </div>
 </template>
 
