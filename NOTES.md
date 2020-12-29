@@ -12,4 +12,6 @@
 - Ajouter évènement de clic sur les marqueurs pour afficher un contenu dynamique (avec boutons si possible)
 6. Installer `axios` (M)
 7. Récupérer les données des gares (M)
+- Creer un objet qui va recuperer les donnees et les parser si besoin
+- Appeler cet objet dans home pour recuperer les donnees des gares
 8. Intégrer la Map avec les données des gares (M)
