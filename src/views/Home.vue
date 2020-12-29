@@ -9,7 +9,7 @@
         @update:center="centerUpdated"
         @update:bounds="boundsUpdated"
         >
-        <l-marker v-for="station in stations" :key="station" :lat-lng="station.latlng">
+        <l-marker v-for="station in stations" :key="station.name" :lat-lng="station.latlng">
           <l-icon
             :icon-size="iconSize"
             :icon-anchor="iconAnchor"
@@ -25,6 +25,7 @@
 
 <script>
 import { LMap, LTileLayer, LMarker, LIcon, LPopup } from "vue2-leaflet";
+import { getStations } from '../api'
 
 export default {
   components: {
@@ -38,17 +39,17 @@ export default {
     return {
       stations: [
         {
-          name:"aa",
+          name:"Gare de Saint-Lazare",
           popupcontent:"Gare de saint lazare <br/><a href='google.com'>ah oui</a><a href='google.com'>ok</a>",
           latlng: [48.8926013, 2.2339234]
         },
         {
-          name:"aa",
+          name:"Gare de la Défense",
           popupcontent:"Gare de la defense<br/><a href='google.com'>ah oui</a><a href='google.com'>ok</a>",
           latlng: [48.872829842, 2.321332048]
         },
         {
-          name:"aa",
+          name:"Gare de Bercy",
           popupcontent:"Gare de Bercy <br/><a href='google.com'>ah oui</a><a href='google.com'>ok</a>",
           latlng: [48.8391474, 2.3805528]
         },
@@ -72,5 +73,8 @@ export default {
       this.bounds = bounds;
     },
   },
+  mounted () {
+    getStations()
+  }
 };
 </script>
