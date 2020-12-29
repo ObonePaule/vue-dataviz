@@ -1,34 +1,27 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/search">Search</router-link>
-      <router-link to="/data">Data</router-link>
-      <router-link to="/found">Found</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-card class="pa-4 floating-header" flat>
+      <v-toolbar dense floating>
+        <v-text-field
+          hide-details
+          prepend-icon="mdi-magnify"
+          single-line
+        ></v-text-field>
+
+        <v-btn text> Home </v-btn>
+        <v-btn text> Objects found </v-btn>
+        <v-btn text> Data </v-btn>
+      </v-toolbar>
+    </v-card>
+    <router-view />
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+<style lang="css">
+.floating-header {
+  position: absolute !important;
+  z-index: 999 !important;
+  background: transparent !important;
+  left: 50px !important;
 }
 </style>
