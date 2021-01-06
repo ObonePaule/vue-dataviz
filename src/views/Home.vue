@@ -15,7 +15,7 @@
             :icon-anchor="iconAnchor"
             icon-url="https://www.ija-lille.fr/wpress/wp-content/uploads/2018/01/map-marker-icon.png"
           />
-          <l-popup :content="station.popupcontent"/>
+          <l-popup :content="station.popupContent"/>
         </l-marker>
         <l-tile-layer :url="url"></l-tile-layer>
       </l-map>
@@ -37,25 +37,9 @@ export default {
   },
   data() {
     return {
-      stations: [
-        {
-          name:"Gare de Saint-Lazare",
-          popupcontent:"Gare de saint lazare <br/><a href='google.com'>ah oui</a><a href='google.com'>ok</a>",
-          latlng: [48.8926013, 2.2339234]
-        },
-        {
-          name:"Gare de la Défense",
-          popupcontent:"Gare de la defense<br/><a href='google.com'>ah oui</a><a href='google.com'>ok</a>",
-          latlng: [48.872829842, 2.321332048]
-        },
-        {
-          name:"Gare de Bercy",
-          popupcontent:"Gare de Bercy <br/><a href='google.com'>ah oui</a><a href='google.com'>ok</a>",
-          latlng: [48.8391474, 2.3805528]
-        },
-      ],
+      stations: [],
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      zoom: 15,
+      zoom: 7,
       center: [48.872829842, 2.321332048],
       bounds: null,
       iconSize: [32, 37],
@@ -73,8 +57,9 @@ export default {
       this.bounds = bounds;
     },
   },
-  mounted () {
-    getStations()
+  async mounted () {
+    this.stations = await getStations()
+    console.log(this.stations)
   }
 };
 </script>
