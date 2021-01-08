@@ -186,7 +186,7 @@ export default {
       showSelectedStationFrequentations: false,
       stations: [],
       selectedStation: null,
-      url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      url: "https://tile.jawg.io/jawg-terrain/{z}/{x}/{y}.png?access-token=m7rJP5tLpHP4saJYqMGL5IE2cCUUj3OsTVir1TYoQ21DFo1XeKf1ryk2bqNAWJC0",
       zoom: 7,
       center: [48.872829842, 2.321332048],
       bounds: null,
@@ -248,7 +248,7 @@ export default {
     },
   },
   async mounted() {
-    this.stations = await getStations();
+    this.stations = await getStations(10);
     await this.refreshStationDetails();
   },
 };
