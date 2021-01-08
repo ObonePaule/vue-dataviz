@@ -7,18 +7,68 @@ export class Station {
     this.deptName = record.departement_libellemin
     this.postalCode = record.adresse_cp
     this.popupContent = `
-      ${this.name}
-      <br/>
-      ${this.cityName}, ${this.postalCode} ${this.deptName}
-      <div>
-        <a href='google.com'>ah oui</a>
-        <a href='google.com'>ok</a>
+      <div class="station-popover-content" id="${this.codeUIC}">
+        <span class="station-name">${this.name}</span>
+        <br/>
+        <span class="station-details">${this.cityName}, ${this.postalCode} ${this.deptName}</span>
+
+        <div>
+          <a href="#details?id=${this.codeUIC}" class="station-details-btn">Détails</a>
+        </div>
       </div>
     `
     this.latlng = record.wgs_84
+    this.frequentations = null
 
     if (!this.latlng) {
       this.haveCoords = false
     }
+  }
+}
+
+export class ObjectFound {
+  constructor(object) {
+    this.name = object.gc_obo_nature_c
+    this.stationName = object.gc_obo_gare_origine_r_name
+    this.codeUIC = object.gc_obo_gare_origine_r_code_uic_c
+
+    const date = new Date(object.date)
+    date.setHours(0, 0, 0, 0)
+
+    this.year = date.getFullYear()
+    this.month = date.getMonth()
+    this.date = `${date.getDate()}-${this.month}-${this.year}`
+
+    this.isReturned = false
+    if (object.gc_obo_date_heure_restitution_c != null){
+      this.isReturned = true
+    }
+  }
+}
+
+export class Frequentation { 
+  constructor(record) {
+    this.values = [
+      {
+        year: 2015,
+        'Voyageurs': record.total_voyageurs_2015,
+      },
+      {
+        year: 2016,
+        'Voyageurs': record.total_voyageurs_2016,
+      },
+      {
+        year: 2017,
+        'Voyageurs': record.totalvoyageurs2017,
+      },
+      {
+        year: 2018,
+        'Voyageurs': record.total_voyageurs_2018,
+      },
+      {
+        year: 2019,
+        'Voyageurs': record.total_voyageurs_2019,
+      },
+    ]
   }
 }
