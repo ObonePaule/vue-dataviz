@@ -29,11 +29,12 @@ export class Station {
 export class ObjectFound {
   constructor(object) {
     this.name = object.gc_obo_nature_c
-    this.stationName = object.gc_obo_gare_origine_r_name
+    this.stationName = object.gc_obo_gare_origine_r_name || "Non défini"
     this.codeUIC = object.gc_obo_gare_origine_r_code_uic_c
 
     const date = new Date(object.date)
     date.setHours(0, 0, 0, 0)
+    date.setMonth(date.getMonth() + 1)
 
     this.year = date.getFullYear()
     this.month = date.getMonth()

@@ -49,7 +49,8 @@
   width: 0px;
   opacity: 0;
   visibility: hidden;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
   background-color: white;
   box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.45) inset;
   z-index: 999;
