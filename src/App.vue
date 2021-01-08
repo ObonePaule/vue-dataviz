@@ -23,5 +23,11 @@
   z-index: 999 !important;
   background: transparent !important;
   left: 50px !important;
+  transform: translateX(0);
+  transition: all .2s cubic-bezier(0.165, 0.840, 0.440, 1.000) 0s;
+}
+.open-station-details .floating-header {
+  transform: translateX(450px);
+  transition: all .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) .1s;
 }
 </style>

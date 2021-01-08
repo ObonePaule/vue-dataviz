@@ -15,3 +15,6 @@
 - Creer un objet qui va recuperer les donnees et les parser si besoin
 - Appeler cet objet dans home pour recuperer les donnees des gares
 8. Intégrer la Map avec les données des gares (M)
+9. Ajouter un bouton Détails dans la popup pour afficher un panneau à gauche pouvant contenir les bandes de statistiques
+10. Afficher les derniers stats par rapport à "Objets trouvés", "Trains annulés/retard", "Nombre de voyageurs"
+11. Intégrer la page "Objets trouvés"
