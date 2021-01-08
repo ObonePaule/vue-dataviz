@@ -124,7 +124,7 @@
             ></D3BarChart>
           </div>
 
-          <div class="pane-section">
+          <div class="pane-section" v-if="false">
             <h3 class="pane-section-header">Trains annulés/en retard</h3>
             <D3BarChart
               v-if="showSelectedStationFrequentations"
