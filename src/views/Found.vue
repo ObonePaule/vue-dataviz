@@ -4,11 +4,25 @@
   }
   .chart-self {
     padding: 50px 0;
+    padding-top: 0;
+  }
+  .background {
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-image: url(../assets/images/map.jpg);
+    background-size: cover;
+    background-position: 0 50%;
   }
 </style>
 
 <template>
   <div class="chart-container">
+    <div class="background" />
     <div class="filters">
       <v-row align="center">
         <v-col class="d-flex" cols="12" sm="6">
