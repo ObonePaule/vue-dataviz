@@ -95,7 +95,7 @@
   font-size: 18px;
 }
 .pane-body {
-  padding: 0;
+  padding-top: 100px;
 }
 </style>
 
@@ -248,7 +248,7 @@ export default {
     },
   },
   async mounted() {
-    this.stations = await getStations(10);
+    this.stations = await getStations(50);
     await this.refreshStationDetails();
   },
 };

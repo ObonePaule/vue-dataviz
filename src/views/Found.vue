@@ -184,7 +184,7 @@ export default {
         Object.keys(lostObjectsDict.byStationName)
       );
 
-      this.showChart = this.chart_data.length > 0;
+      this.showChart = true;
     },
   },
   async mounted() {
