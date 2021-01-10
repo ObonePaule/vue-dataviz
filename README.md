@@ -18,7 +18,7 @@ This is an application containing several data visualization interfaces in the f
 
 - Search by station to obtain certain information such as the regularity of different types of trains. The display is in the form of a table
 
-![Search view](./previews/4-office.png)
+![Search view](./docs/previews/search.png)
 
 ## ✨ Application available on the web
 
