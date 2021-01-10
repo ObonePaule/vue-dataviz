@@ -71,7 +71,7 @@ On the home page, we have a map which represents all the stations with a popup d
 
 - Bar Chart
 
-Still on the home page, the popup allows us to display the details of a station. These details are in the form of two bar charts: one for statistics on the number of passengers and another for canceled or late trains. Regarding the second diagram, it has been implemented but some errors remain with the uic-code.
+Still on the home page, the popup allows us to display the detail of a station. This detail is in the form of a bar chart for statistics on the number of passengers.
 
 - Line Chart
 
@@ -79,7 +79,7 @@ The online diagram allows you to visualize the statistics on the objects found, 
 
 - Table 
 
-With menu, we have the option to search by station, but for this some other information that could help users. We enter the name of a station and we have the result in tabular form.
+With menu, we have the option to search by station. We enter the name of a station and we have the result in tabular form. On this table, it is a question of displaying statistics on canceled and late trains.
 
 
 ### 🎮 Technical Choices
