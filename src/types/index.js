@@ -73,3 +73,31 @@ export class Frequentation {
     ]
   }
 }
+
+export class TrainRegularity {
+  constructor(record) {
+    const monthLabels = {
+      1: "Janvier",
+      2: "Février",
+      3: "Mars",
+      4: "Avril",
+      5: "Mai",
+      6: "Juin",
+      7: "Juillet",
+      8: "Août",
+      9: "Septembre",
+      10: "Octobre",
+      11: "Novembre",
+      12: "Décembre",
+    }
+    const monthLabel = monthLabels[record.mois]
+    this.period = `${monthLabel} ${record.annee}`
+    this.startStation = record.gare_de_depart_en_majuscules_sans_espaces_si_tiret
+    this.stopStation = record.gare_d_arrivee_en_majuscules_sans_espaces_si_tiret
+    this.lateTrainsCount = record.nombre_de_trains_en_retard_au_depart
+    this.canceledTrainsCount = record.nombre_de_trains_annules
+    this.averageDelayAtDeparture = `${parseInt(record.retard_moyen_des_trains_en_retard_au_depart_min)} minute(s)`
+    this.averageDelayAtArrival = `${parseInt(record.retard_moyen_de_tous_les_trains_a_l_arrivee_min)} minute(s)`
+    this.averageTripDuration = `${parseInt(record.duree_moyenne_du_trajet_min_telle_que_prevue)} minute(s)`
+  }
+}

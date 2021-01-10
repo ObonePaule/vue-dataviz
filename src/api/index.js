@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ObjectFound, Station, Frequentation } from './../types'
+import { ObjectFound, Station, Frequentation, TrainRegularity } from './../types'
 
 const API_HOST_BASE = "https://data.sncf.com/api/records/1.0/search/"
 
@@ -39,4 +39,12 @@ export async function getStationFrequentations(stationUICCode) {
   const frequentations = response.data.records.map(record => new Frequentation(record.fields))
 
   return frequentations[0]
+}
+
+export async function getTrainRegularityByStation(query, rows = 1000) {
+  const TRAIN_REGULARITY = `?dataset=regularite-mensuelle-tgv-aqst&q=${query.toString().toLowerCase()}&sort=periode&rows=${rows}`
+  const response = await axios.get(API_HOST_BASE + TRAIN_REGULARITY)
+  const regularities = response.data.records.map(record => new TrainRegularity(record.fields))
+
+  return regularities
 }
